@@ -1,0 +1,27 @@
+{
+  "locals": {
+    "url": "http://www.spiraltechnology.co.uk",
+    "name": "spiraltechnology",
+    "owner": "David",
+    "description": "simple, pragmatic, elegant code"
+  },
+  "plugins": [
+    "./plugins/paginator.coffee"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
+  },
+  "output" : "../spiraltechnology-website-deploy"
+}

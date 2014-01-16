@@ -1,0 +1,14 @@
+extends layout
+
+block header
+
+block content
+  article.article
+    section.content!= typogr(page.html).typogrify()
+    a(class='contact', href='mailto:david@spiraltechnology.co.uk'): img(src='img/mail.png')
+    a(class='contact', href='http://uk.linkedin.com/pub/david-parry/1/763/199'): img(src='img/linkedin.png')
+    a(class='contact', href='http://twitter.com/davidparry'): img(src='img/twitter.png')
+    a(class='contact', href='/blog.html'): img(src='img/blogger.png')
+
+append footer
+  +background('/img/david.jpg')
