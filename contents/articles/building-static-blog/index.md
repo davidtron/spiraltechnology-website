@@ -4,12 +4,11 @@ author: david
 date: 2014-01-10
 template: article.jade
 ---
-After 2 years of inactivity, I decided to resurrect my blog as a place to store technical snippets.  Previously I wrote my blog using [Jekyll](http://jekyllrb.com/), but did not get on with Ruby and constant Gem updates, so am giving Wintersmith a try, it's built on top of node.js, easy to install and under active development.
+After 2 years of inactivity, I decided to resurrect my blog as a place to store technical snippets.  Previously I wrote my blog using [Jekyll](http://jekyllrb.com/), but did not get on with Ruby and constant Gem updates, so am giving [Wintersmith](http://wintersmith.io/) a try, it's built on top of node.js, easy to install and under active development.
 
-Last time I ground to a halt because my laptop was stolen before I backed up the code anywhere, so I'll be pushing the source to GitHub and trying out 
+Last time I ground to a halt because my laptop was stolen before I backed up the code anywhere, so I'll be pushing the source to GitHub and trying out their pages.
 
-The obvious place to store it was
-
+<span class="more"></span>
 
 1. Install node.js 
 
@@ -35,18 +34,54 @@ cd spiraltechnology-website
 wintersmith preview
 ```
 
-
-
 The first problem I had was 
 
-template archive.jade: /Users/david/dev/spiraltechnology-website/templates/layout.jade:1
-  > 1| !!! 5
+```bash
+template archive.jade: /Users/david/dev/spiraltechnology-website/templates/layout.jade: > 1| !!! 5
+```
 
-Looks like the version in nom is not yet up to date
+Looks like the version in npm is not yet up to date with the version on github.  To fix follow it's advice and *replace !!! 5* with *doctype html*
 
+```bash
 nano -w /Users/david/dev/spiraltechnology-website/templates/layout.jade
-and replace !!! 5 
-with doctype html
-Welcome to your new blog! This is the default blog template with RSS, pagination and an archive. There are other templates available -- run `wintersmith new --help` to list them.
+```
 
----
+5. After creating some content and tweaking the layout and css, I wanted to publish my site to [github pages manually](https://help.github.com/articles/creating-project-pages-manually). Create an orphan branch of the project
+
+```bash
+cd ~/dev
+git clone https://github.com/davidtron/spiraltechnology-website.git spiraltechnology-website-deploy
+cd spiraltechnology-website-deploy
+git checkout --orphan gh-pages
+git rm -rf .
+```
+
+6. Configure wintersmith to build to the deploy directory. This is controlled by adding an output option to config.json in the root of the directory wintersmith created for us.
+
+```javascript
+{
+  "locals": {
+    "url": "http://www.spiraltechnology.co.uk",
+    "name": "spiraltechnology",
+    "owner": "David",
+    "description": "simple, pragmatic, elegant code"
+  },
+  "output" : "../spiraltechnology-website-deploy"
+  ...
+}
+```
+
+7. In the source directory compile the website, it should output it into the newly created deployment directory
+```bash
+cd ~/dev/spiraltechnology-website
+wintersmith build
+```
+
+8. Add the files in the github pages branch and push it up to the server.
+
+```bash
+cd ~/dev/spiraltechnology-website-deploy
+git add *
+git commit -a -m "First pages commit. WIP"
+git push origin gh-pages
+```

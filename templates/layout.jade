@@ -6,7 +6,7 @@ html(lang='en')
     block head
       meta(charset='utf-8')
       meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-      meta(name='viewport', content='width=device-width')
+      meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
       title
         block title
           = locals.name
@@ -14,10 +14,9 @@ html(lang='en')
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
       link(rel='stylesheet', href='/css/main.css')
 
-  body(class=bodyclass)
-
+  body
     div#content
-      div.rightnav
+      nav
         div.menuitem
           a(href='/index.html') home
         div.menuitem
