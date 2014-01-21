@@ -35,7 +35,7 @@ git push origin master
     ![123 domain controls](123-domain-options.png)
 
     Under the Advance domain settings, select 'Manage DNS'
-    ![123 add DNS entry](added-cname-for-www-to-github.png)
+    <img src='added-cname-for-www-to-github.png' style='width: 590px;' />
 
     Finally add an entry for the subdomain (www.spiraltechnology.co.uk) pointing to the github userpage (davidtron.github.io)
 

@@ -74,7 +74,7 @@ Last time I ground to a halt because my laptop was stolen before I backed up the
     git checkout master
     ```
 
-6.  Configure wintersmith to build to the deploy directory. This is controlled by adding an output option to config.json in the root of the directory wintersmith created for us.
+8.  Configure wintersmith to build to the deploy directory. This is controlled by adding an output option to config.json in the root of the directory wintersmith created for us.
 
     ```javascript
     {
@@ -89,13 +89,13 @@ Last time I ground to a halt because my laptop was stolen before I backed up the
     }
     ```
 
-7.  In the source directory compile the website, it should output it into the newly created deployment directory
+9.  In the source directory compile the website, it should output it into the newly created deployment directory
     ```bash
     cd ~/dev/spiraltechnology-website
     wintersmith build
     ```
 
-8. Add the files in the github pages branch and push it up to the server.
+10. Add the files in the github pages branch and push it up to the server.
 
     ```bash
     cd ~/dev/spiraltechnology-website-deploy
@@ -104,4 +104,4 @@ Last time I ground to a halt because my laptop was stolen before I backed up the
     git push origin master
     ```
 
-9.  Check that it's published after a few minutes at http://davidtron.github.io
+11.  Check that it's published after a few minutes at http://davidtron.github.io
